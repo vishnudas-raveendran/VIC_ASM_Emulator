@@ -4,7 +4,7 @@ This is an attempt to create an emulator for a hypothetical 16 bit microprocesso
 
 
 #####################################
-#      		Note					#
+#      		Note		    #
 #####################################
 
 
@@ -18,8 +18,10 @@ This is an attempt to create an emulator for a hypothetical 16 bit microprocesso
 5. Please keep the "binary.txt" file which is auto-generated intermediate file from asmcode.exe in the same directory has "binrun.exe".
 
 #####################################
-#      		Instructions	    #
+#      	Instructions	            #
 #####################################	
+
+
 
 1. Write your program in "ASMCODE.vic" file by referring to the opcodes in the readme.md above.
 2. Execute "asmcode.exe" or compile "asmcode.c"
