@@ -1,0 +1,10 @@
+mvi A,10;
+mvi B,0;
+mvi C,1;
+#DEC:
+add B,B,C;
+sub A,A,C;
+comp A,C;
+jge DEC;
+
+
