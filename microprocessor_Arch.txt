@@ -1,0 +1,94 @@
+Microprocessor design
+
+Use the following opcodes to write programs
+
+|OPCODE	|   MACHINE CODE  |    No.of operands 	| Description					|Syntax					|Remarks							
+|add	|	0100000	  	  |		3    			| Addition operation 			|add dest,src1,src2		|dest=src1+src2
+|sub	|	0100001	  	  |		3    			| Subtraction operation 		|sub dest,src1,src2		|dest=src2-src1
+|mul	|	0100010	  	  |		3    			| Multiplication operation 		|mul dest,src1,src2		|dest=src1*src2
+|div	|	0100011	  	  |		3    			| Division operation 			|div dest,src1,src2		|dest=src2/src1
+|mov	|	0100100	  	  |		2    			| Move operation 				|mov dest,src			|dest=src
+|mod	|	0100101	  	  |		3    			| Modulus operation				|mod dest,src1,src2		|dest=src2%src1
+|comp	|	0100110	  	  |		2    			| Comparison operation			|comp src1,src2			|flags are set
+|mvi	|	0100111	  	  |		2    			| Move immediate operation		|mvi dest,int_num		|dest=int_num
+|jmp	|	0101000	  	  |		1    			| Unconditional jump			|jmp label				|jumps to #label
+|jmg	|	0101001	  	  |		1    			| Jump if greater				|jmg label				|jumps if flag bit is set as greater than after a comp operation
+|jge	|	0101010	  	  |		1    			| jump if greater than or equal |jge label				|jumps if flag bit is set as greater than or equal to after a comp operation
+|jml	|	0101011	  	  |		1    			| jump if less 	     			|jml label				|jumps if flag bit is set as less than after a comp operation   			
+|jle	|	0101100	  	  |		1       		| jump if less than or equal 	|jle label				|jumps if flag bit is set as less than or equal after a comp operation
+|#label | At run time	  | 	Nil				| Label instruction				|#big					|Instructions execute from next line after label
+
+
+
+#####################################
+#      Flag Structures 			    #
+#####################################
+
+
+    flag[0] --|
+			  |- indicates the status of compare flags:-			  
+    flag[1] --|
+
+	flag[2] - indicates any error
+
+--------------------------------------	
+	Status of compare flags	
+--------------------------------------
+ flag[0]  flag[1]					
+	1		1		equal 		
+	1		0		src1>src2
+	0		1   	src1<src2 
+	0		0		invalid
+-------------------------------------	
+
+
+#####################################
+#      Instruction formats:		    #
+#####################################
+
+**
+-------------------------------
+	Arithemtic operations
+-------------------------------
+   add, sub, mul, div, mod    
+-------------------------------   
+opcode	Regd	Regs1	Regs2
+7 bits	3 bits	3 bits	3 bits
+--------------------------------
+**
+
+
+**
+------------------------------
+	immediate operations
+-------------------------------
+   mvi    
+------------------------------- 
+Opcode	Regd	Immediate value
+7 bits	3 bits	6 bits
+-------------------------------
+**
+
+
+**
+------------------------------
+	Jump operations
+-------------------------------
+   jmp, jml, jle, jmg, jge   
+------------------------------- 
+Opcode	Label code
+7 bits	9 bits
+-------------------------------
+**
+
+
+**
+------------------------------
+	Label instruction
+-------------------------------
+   #label 
+------------------------------- 
+Label code
+9 bits
+-------------------------------
+**
